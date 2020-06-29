@@ -5,8 +5,8 @@ def check(name):
     greq = requests.get(url+"/php/result.txt")
     try:
         jgres = json.loads(greq.text)
-        print("Lat  : "+jgres['info'][0]['lat'])
-        print("Long : "+jgres['info'][0]['lon'])
+        print("Широта  : "+jgres['info'][0]['lat'])
+        print("Долгота : "+jgres['info'][0]['lon'])
         sys.exit
     except:
         jres=1
@@ -17,13 +17,13 @@ print("""\033[32m╔═╗┌┐┌┌┬┐┬╔═╗┌─┐┌─┐┬┌
 help = """
 -h    Help
 
--p    Parsing the Seeker -p [url]
+-p    Анализ взломшика -p [ссылка]
      \033[33m -p https://*****.ngrok.io \033[0m
 
--c    To crash Seeker -c [url]
+-c    Вломать взломшика -c [url]
      \033[33m -c https://*****.ngrok.io \033[0m
 
--l    Track geo data -l [time] [url]
+-l    Вычислить место времиня -l [time] [url]
      \033[33m -l 10 https://*****.ngrok.io \033[0m
 """
 if sys.argv[1] == "-p":
@@ -35,18 +35,18 @@ if sys.argv[1] == "-p":
         print(res.text)
         jres=1
     if jres == "":
-        print("No information")
+        print("Нет сведений")
     elif jres == 1:
         pass
     else:
-        print("OS       : "+jres['dev'][0]['os'])
-        print("Platform : "+jres['dev'][0]['platform'])
-        print("Browser  : "+jres['dev'][0]['browser'])
-        print("Cores    : "+jres['dev'][0]['cores'])
-        print("Ram      : "+jres['dev'][0]['ram'])
-        print("IP       : "+jres['dev'][0]['ip'])
-        print("Vendor   : "+jres['dev'][0]['vendor'])
-        print("Render   : "+jres['dev'][0]['render'])
+        print(" Операционная система      : "+jres['dev'][0]['os'])
+        print("Платформа : "+jres['dev'][0]['platform'])
+        print("Браузер  : "+jres['dev'][0]['browser'])
+        print("Ядра   : "+jres['dev'][0]['cores'])
+        print("ОЗУ     : "+jres['dev'][0]['ram'])
+        print("IP адрес      : "+jres['dev'][0]['ip'])
+        print("Продавец   : "+jres['dev'][0]['vendor'])
+        print("Доставщик   : "+jres['dev'][0]['render'])
 elif sys.argv[1] == "-c":
     url = sys.argv[2]
     Lat = 'qw%27erty000"'
